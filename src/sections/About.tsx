@@ -1,6 +1,6 @@
 import Section from '../components/Section';
 
-const focus = ['Software development', 'Mobile applications', 'QA & testing', 'DevOps', 'Maintenance'];
+const focus = ['Software development', 'Mobile applications', 'QA & testing', 'DevOps', 'AI automation', 'Maintenance'];
 
 export default function About() {
   return (
@@ -16,6 +16,10 @@ export default function About() {
             We also provide QA and DevOps solutions: manual and automated testing across functional, regression,
             API, performance and security, plus CI/CD pipelines, cloud infrastructure and monitoring that make
             every release fast and dependable.
+          </p>
+          <p>
+            And we put AI to work: agents and assistants integrated into your applications and internal
+            workflows that automate repetitive processes, with people kept in control of the decisions that matter.
           </p>
         </div>
         <ul className="chips" aria-label="Areas of focus">

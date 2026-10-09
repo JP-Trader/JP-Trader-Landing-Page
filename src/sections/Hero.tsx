@@ -34,13 +34,13 @@ export default function Hero() {
       </div>
       <div className="container hero__inner">
         <div className="hero__copy">
-          <p className="eyebrow eyebrow--light">Software · Mobile · QA · DevOps</p>
+          <p className="eyebrow eyebrow--light">Software · Mobile · QA · DevOps · AI</p>
           <h1 id="hero-title">
             Building Smart Applications. <span className="grad">Powering Digital Growth.</span>
           </h1>
           <p className="hero__lead">
             JP Trader designs, builds, deploys and maintains web and mobile applications, backed by QA
-            and DevOps solutions that keep every release tested, automated and reliable.
+            and DevOps solutions, and integrates AI agents that automate your everyday processes.
           </p>
           <div className="hero__cta">
             <a href="#services" className="btn btn--primary">

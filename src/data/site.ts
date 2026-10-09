@@ -33,6 +33,7 @@ export const services: Card[] = [
   { title: 'Android App Development', short: 'Android Apps', icon: 'android', description: 'Modern Android applications with intuitive interfaces and reliable performance.' },
   { title: 'QA & Testing Solutions', short: 'QA & Testing', icon: 'qa', description: 'Manual and automated testing: functional, regression, API, performance and security testing with test automation frameworks and clear reports.' },
   { title: 'DevOps Solutions', short: 'DevOps', icon: 'devops', description: 'CI/CD pipelines, infrastructure as code, containerization, cloud setup and monitoring so releases are fast, repeatable and reliable.' },
+  { title: 'AI Agent Integration & Automation', short: 'AI Agents', icon: 'ai', description: 'AI agents and LLM-powered assistants built into your apps and workflows, automating repetitive processes with human-in-the-loop controls.' },
   { title: 'Application Deployment', short: 'Deployment', icon: 'cloud', description: 'Build, configure, test and deploy to web servers, cloud infrastructure, the Apple App Store and Google Play Store.' },
   { title: 'Application Maintenance', short: 'Maintenance', icon: 'wrench', description: 'Bug fixes, security updates, performance optimization, version upgrades and ongoing technical support.' },
 ];
@@ -51,6 +52,7 @@ export const stack: StackGroup[] = [
   { title: 'Backend & Data', icon: 'code', summary: 'APIs, services and storage.', tools: ['Node.js', 'Python', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Redis'] },
   { title: 'QA & Testing', icon: 'qa', summary: 'Automation at every level.', tools: ['Playwright', 'Selenium', 'Cypress', 'Appium', 'Postman', 'JMeter'] },
   { title: 'DevOps & Cloud', icon: 'devops', summary: 'Repeatable, observable delivery.', tools: ['Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins', 'Terraform', 'AWS', 'Azure'] },
+  { title: 'AI & Automation', icon: 'ai', summary: 'Agents that do the busywork.', tools: ['Claude API', 'OpenAI API', 'LangChain', 'MCP', 'n8n', 'Python'] },
 ];
 
 export const processSteps = [
@@ -78,5 +80,6 @@ export const inquiryTopics = [
   'Maintenance & Support',
   'QA & Testing',
   'DevOps',
+  'AI Agents & Automation',
   'Other',
 ];
