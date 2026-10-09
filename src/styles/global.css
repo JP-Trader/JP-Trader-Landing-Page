@@ -48,6 +48,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .logo { display: inline-flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.2rem; color: var(--navy-900); text-decoration: none; }
 .footer .logo { color: var(--white); }
+.logo__text { letter-spacing: -0.01em; white-space: nowrap; }
+.logo__text small { font-size: inherit; font-weight: 500; opacity: .78; }
 .nav { display: flex; align-items: center; gap: 1.5rem; }
 .nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 500; }
 .nav a:not(.btn):hover { color: var(--blue-600); }

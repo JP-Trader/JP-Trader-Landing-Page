@@ -4,7 +4,7 @@
 
 ```bash
 npm ci
-cp .env.example .env     # set VITE_FORM_ENDPOINT (see below)
+cp .env.example .env     # set VITE_WEB3FORMS_KEY (see below)
 npm run test
 npm run build            # outputs static files to dist/
 ```
@@ -45,12 +45,23 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 ```
-Set `VITE_FORM_ENDPOINT` **before** building; it is baked into the files. For a form without a third-party service, use a small PHP script on the same host and point the endpoint at it.
+Set `VITE_WEB3FORMS_KEY` (or `VITE_FORM_ENDPOINT`) **before** building; it is baked into the files. For a form without a third-party service, use a small PHP script on the same host and point the endpoint at it.
 To update the site later, rebuild and re-upload `dist/`.
 
 ## 2. Inquiry form
-Set `VITE_FORM_ENDPOINT` at build time to an endpoint that accepts a JSON `POST` with `name, email, phone, service, message` (Formspree, a serverless function, or your own API). Add server-side validation, rate limiting and spam protection there; client validation is only a convenience.
-If unset, the form opens the visitor's email client addressed to `info@jptrader.in`.
+The site is static, so a small relay service delivers inquiries to `info@jptrader.in`.
+
+**Web3Forms (current setup, free):**
+1. Go to https://web3forms.com, enter `info@jptrader.in` and click *Create Access Key*. The key is emailed to that inbox.
+2. Store it as a repository variable so the GitHub Pages build picks it up:
+   `gh variable set VITE_WEB3FORMS_KEY --repo JP-Trader/JP-Trader-Landing-Page --body "<key>"`
+   (or GitHub > Settings > Secrets and variables > Actions > Variables).
+3. Re-run the deploy workflow (or push to `main`). Submit a test inquiry and confirm it arrives.
+The key is public by design (it ships in the browser bundle) and only allows sending to the address it was created for. Web3Forms honours the form's honeypot field and offers reCAPTCHA/hCaptcha if spam becomes a problem.
+
+**Alternative:** set `VITE_FORM_ENDPOINT` to any endpoint that accepts a JSON `POST` with `name, email, phone, service, message` (Formspree, a serverless function, or your own API). Add server-side validation, rate limiting and spam protection there; client validation is only a convenience.
+
+If neither is set, the form opens the visitor's email client addressed to `info@jptrader.in`.
 
 ## 3. Before launch checklist
 - [ ] Confirm domain DNS and HTTPS for https://jptrader.in/

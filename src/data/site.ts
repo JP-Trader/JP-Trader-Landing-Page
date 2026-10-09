@@ -4,8 +4,8 @@ export const company = {
   name: 'JP Trader',
   website: 'https://jptrader.in/',
   email: 'info@jptrader.in',
-  phone: '+91 73588 77767',
-  phoneHref: 'tel:+917358877767',
+  phone: '+91 99947 75475',
+  phoneHref: 'tel:+919994775475',
   address: '26/C, Thangaraj Layout, East Shanmugapuran, Villupuram, Tamil Nadu, India.',
 };
 

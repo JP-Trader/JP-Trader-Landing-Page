@@ -21,7 +21,7 @@ describe('App', () => {
   it('exposes company contact links', () => {
     render(<App />);
     expect(screen.getAllByRole('link', { name: 'info@jptrader.in' })[0]).toHaveAttribute('href', 'mailto:info@jptrader.in');
-    expect(screen.getAllByRole('link', { name: '+91 73588 77767' })[0]).toHaveAttribute('href', 'tel:+917358877767');
+    expect(screen.getAllByRole('link', { name: '+91 99947 75475' })[0]).toHaveAttribute('href', 'tel:+919994775475');
   });
 
   it('shows validation errors and does not submit an empty form', async () => {
