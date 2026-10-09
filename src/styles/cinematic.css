@@ -28,15 +28,18 @@ h1, h2, h3 { color: var(--white); }
 .btn--primary { background: linear-gradient(135deg, #2563eb, #4f46e5); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, .8); }
 .btn--primary:hover { background: linear-gradient(135deg, #3b82f6, #6366f1); }
 .btn--ghost { background: var(--glass); backdrop-filter: blur(6px); }
-.mock { background: linear-gradient(160deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .03)); backdrop-filter: blur(14px); border-color: var(--glass-line); animation: bob 7s ease-in-out infinite; }
-.mock__bar b { margin-left: auto; font: 500 .72rem ui-monospace, monospace; color: #7f93b2; }
-.mock__line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s .5s var(--ease) forwards; filter: drop-shadow(0 0 6px rgba(96, 165, 250, .8)); }
-.mock__area { opacity: 0; animation: fadein 1.2s 1.6s forwards; }
-.candle { opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; animation: grow .6s var(--d) var(--ease) forwards; }
+/* Orbit: rings rotate, nodes counter-rotate so labels stay upright; hover pauses everything */
+.orbit__ring { opacity: 0; animation: fadein 1s .3s forwards, spin var(--spin) linear infinite; }
+.orbit__ring--outer { --spin: 70s; }
+.orbit__ring--inner { --spin: 45s; animation-direction: normal, reverse; }
+.orbit__ring::before { content: ''; position: absolute; top: -4px; left: calc(50% - 4px); width: 8px; height: 8px; border-radius: 50%; background: #93c5fd; box-shadow: 0 0 12px #60a5fa; }
+.orbit__node span { animation: spin var(--spin) linear infinite reverse, pop .6s var(--d) var(--ease) both; }
+.orbit__ring--inner .orbit__node span { animation-direction: normal, normal; }
+.orbit__node span:hover { border-color: rgba(96, 165, 250, .7); background: rgba(37, 99, 235, .55); color: #fff; }
+.orbit:hover .orbit__ring, .orbit:hover .orbit__node span { animation-play-state: paused; }
+.orbit__core { animation: core .9s .1s var(--ease) both; }
+.orbit__halo { animation: breathe 6s ease-in-out infinite; }
 .hero__visual { position: relative; }
-.float { position: absolute; display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .85rem; border-radius: 99px; font-size: .82rem; font-weight: 600; color: #dbeafe; background: rgba(10, 31, 68, .75); border: 1px solid var(--glass-line); backdrop-filter: blur(10px); box-shadow: 0 12px 30px -12px #000; }
-.float--a { top: -14px; right: -8px; animation: bob 5s ease-in-out infinite; }
-.float--b { bottom: 38px; left: -18px; animation: bob 6s 1s ease-in-out infinite; }
 .scroll-hint { position: absolute; left: 50%; bottom: 1.5rem; width: 24px; height: 40px; margin-left: -12px; border: 2px solid rgba(255, 255, 255, .35); border-radius: 14px; }
 .scroll-hint span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--white); animation: wheel 1.8s infinite; }
 
@@ -50,9 +53,9 @@ h1, h2, h3 { color: var(--white); }
 .chips li { background: var(--glass); border-color: var(--glass-line); color: #dbeafe; }
 
 /* Glass cards with a pointer-follow spotlight */
-.card, .platforms li, .steps li { position: relative; overflow: hidden; background: var(--glass); border: 1px solid var(--glass-line); border-radius: var(--radius); }
-.card::before, .platforms li::before, .steps li::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0), rgba(96, 165, 250, .22), transparent 70%); }
-.card:hover::before, .platforms li:hover::before, .steps li:hover::before { opacity: 1; }
+.card, .stack > li, .steps li { position: relative; overflow: hidden; background: var(--glass); border: 1px solid var(--glass-line); border-radius: var(--radius); }
+.card::before, .stack > li::before, .steps li::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0), rgba(96, 165, 250, .22), transparent 70%); }
+.card:hover::before, .stack > li:hover::before, .steps li:hover::before { opacity: 1; }
 .card:hover { border-color: rgba(96, 165, 250, .5); box-shadow: 0 20px 50px -24px rgba(59, 130, 246, .7); }
 .card__icon { background: linear-gradient(135deg, rgba(59, 130, 246, .3), rgba(99, 102, 241, .25)); color: #bfdbfe; border: 1px solid var(--glass-line); }
 .steps__num { background: linear-gradient(135deg, #2563eb, #6366f1); box-shadow: 0 0 22px rgba(99, 102, 241, .6); }
@@ -76,16 +79,16 @@ h1, h2, h3 { color: var(--white); }
 
 @keyframes drift { to { transform: translate(120px, 80px) scale(1.15); } }
 @keyframes gridmove { to { background-position: 0 64px; } }
-@keyframes bob { 50% { transform: translateY(-10px); } }
-@keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes fadein { to { opacity: 1; } }
-@keyframes grow { from { opacity: 0; transform: scaleY(.2); } to { opacity: 1; transform: scaleY(1); } }
+@keyframes spin { to { rotate: 360deg; } }
+@keyframes pop { from { opacity: 0; scale: .6; } to { opacity: 1; scale: 1; } }
+@keyframes core { from { opacity: 0; transform: translate(-50%, -50%) scale(.7); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes breathe { 50% { opacity: .6; transform: scale(1.12); } }
 @keyframes wheel { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(14px); } }
 
-@media (max-width: 960px) { .hero { min-height: auto; padding: 7rem 0 4rem; } .float--b { left: 0; } .scroll-hint { display: none; } }
+@media (max-width: 960px) { .hero { min-height: auto; padding: 7rem 0 4rem; } .orbit { width: min(380px, 92vw); } .scroll-hint { display: none; } }
 @media (max-width: 860px) { .nav { background: #071530; border-bottom-color: var(--glass-line); } .nav a:not(.btn) { border-bottom-color: var(--glass-line); } }
 @media (prefers-reduced-motion: reduce) {
-  .aurora, .hero__grid, .mock, .float, .scroll-hint span { animation: none !important; }
-  .mock__line { stroke-dashoffset: 0; animation: none; }
-  .mock__area, .candle { opacity: 1; animation: none; }
+  .aurora, .hero__grid, .scroll-hint span { animation: none !important; }
+  .orbit__ring, .orbit__node span, .orbit__core, .orbit__halo { opacity: 1; animation: none !important; }
 }

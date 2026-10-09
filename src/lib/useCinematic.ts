@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const REVEAL = '.section__head, .about > *, .card, .platforms li, .steps li, .contact > *, .cta__inner > *, .hero__copy > *, .hero__visual';
+const REVEAL = '.section__head, .about > *, .card, .stack > li, .steps li, .contact > *, .cta__inner > *, .hero__copy > *, .hero__visual';
 
 /**
  * Scroll-driven motion: reveal-on-scroll with stagger, scroll progress,
@@ -26,7 +26,7 @@ export function useCinematic() {
     window.addEventListener('scroll', onScroll, { passive: true });
 
     const onPointer = (e: PointerEvent) => {
-      const card = (e.target as Element | null)?.closest<HTMLElement>('.card, .platforms li, .steps li');
+      const card = (e.target as Element | null)?.closest<HTMLElement>('.card, .stack > li, .steps li');
       if (!card) return;
       const r = card.getBoundingClientRect();
       card.style.setProperty('--mx', `${e.clientX - r.left}px`);

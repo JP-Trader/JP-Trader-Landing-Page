@@ -18,6 +18,13 @@ describe('App', () => {
     expect(section.querySelectorAll('article')).toHaveLength(7);
   });
 
+  it('renders the tech stack grouped by layer', () => {
+    render(<App />);
+    const section = document.getElementById('stack')!;
+    expect(section.querySelectorAll('.stack > li')).toHaveLength(5);
+    expect(screen.getByRole('list', { name: 'QA & Testing tools' })).toHaveTextContent('Playwright');
+  });
+
   it('exposes company contact links', () => {
     render(<App />);
     expect(screen.getAllByRole('link', { name: 'info@jptrader.in' })[0]).toHaveAttribute('href', 'mailto:info@jptrader.in');

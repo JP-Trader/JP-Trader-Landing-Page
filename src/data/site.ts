@@ -12,7 +12,7 @@ export const company = {
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Platforms', href: '#platforms' },
+  { label: 'Tech Stack', href: '#stack' },
   { label: 'Process', href: '#process' },
   { label: 'Why Us', href: '#why' },
   { label: 'Contact', href: '#contact' },
@@ -22,24 +22,35 @@ export interface Card {
   title: string;
   description: string;
   icon: IconName;
+  /** Short label for compact places such as the hero orbit. */
+  short?: string;
 }
 
+/** Order matters: the first three (what we build) sit on the hero's inner ring, the rest on the outer ring. */
 export const services: Card[] = [
-  { title: 'Web Application Development', icon: 'web', description: 'Custom, scalable, secure web applications tailored to your business requirements.' },
-  { title: 'iOS App Development', icon: 'apple', description: 'Native or cross-platform mobile applications for Apple iPhone and iPad.' },
-  { title: 'Android App Development', icon: 'android', description: 'Modern Android applications with intuitive interfaces and reliable performance.' },
-  { title: 'Application Deployment', icon: 'cloud', description: 'Build, configure, test and deploy to web servers, cloud infrastructure, the Apple App Store and Google Play Store.' },
-  { title: 'Application Maintenance', icon: 'wrench', description: 'Bug fixes, security updates, performance optimization, version upgrades and ongoing technical support.' },
-  { title: 'QA & Testing Solutions', icon: 'qa', description: 'Manual and automated testing: functional, regression, API, performance and security testing with test automation frameworks and clear reports.' },
-  { title: 'DevOps Solutions', icon: 'devops', description: 'CI/CD pipelines, infrastructure as code, containerization, cloud setup and monitoring so releases are fast, repeatable and reliable.' },
+  { title: 'Web Application Development', short: 'Web Apps', icon: 'web', description: 'Custom, scalable, secure web applications tailored to your business requirements.' },
+  { title: 'iOS App Development', short: 'iOS Apps', icon: 'apple', description: 'Native or cross-platform mobile applications for Apple iPhone and iPad.' },
+  { title: 'Android App Development', short: 'Android Apps', icon: 'android', description: 'Modern Android applications with intuitive interfaces and reliable performance.' },
+  { title: 'QA & Testing Solutions', short: 'QA & Testing', icon: 'qa', description: 'Manual and automated testing: functional, regression, API, performance and security testing with test automation frameworks and clear reports.' },
+  { title: 'DevOps Solutions', short: 'DevOps', icon: 'devops', description: 'CI/CD pipelines, infrastructure as code, containerization, cloud setup and monitoring so releases are fast, repeatable and reliable.' },
+  { title: 'Application Deployment', short: 'Deployment', icon: 'cloud', description: 'Build, configure, test and deploy to web servers, cloud infrastructure, the Apple App Store and Google Play Store.' },
+  { title: 'Application Maintenance', short: 'Maintenance', icon: 'wrench', description: 'Bug fixes, security updates, performance optimization, version upgrades and ongoing technical support.' },
 ];
 
-export const platforms: Card[] = [
-  { title: 'Web', icon: 'web', description: 'Responsive web apps and dashboards.' },
-  { title: 'iOS', icon: 'apple', description: 'iPhone and iPad, with App Store submission support.' },
-  { title: 'Android', icon: 'android', description: 'Phones and tablets, with Google Play submission support.' },
-  { title: 'Cloud Deployment', icon: 'cloud', description: 'Web servers and cloud infrastructure.' },
-  { title: 'CI/CD & Automation', icon: 'devops', description: 'Pipelines, containers and test automation tooling.' },
+export interface StackGroup {
+  title: string;
+  icon: IconName;
+  summary: string;
+  tools: string[];
+}
+
+/** Tools we build with, grouped by layer. Edit freely; the section renders from this list. */
+export const stack: StackGroup[] = [
+  { title: 'Frontend', icon: 'web', summary: 'Fast, accessible interfaces.', tools: ['React', 'Next.js', 'TypeScript', 'Vite', 'Tailwind CSS'] },
+  { title: 'Mobile', icon: 'apple', summary: 'Native and cross-platform apps.', tools: ['Swift', 'Kotlin', 'Flutter', 'React Native'] },
+  { title: 'Backend & Data', icon: 'code', summary: 'APIs, services and storage.', tools: ['Node.js', 'Python', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Redis'] },
+  { title: 'QA & Testing', icon: 'qa', summary: 'Automation at every level.', tools: ['Playwright', 'Selenium', 'Cypress', 'Appium', 'Postman', 'JMeter'] },
+  { title: 'DevOps & Cloud', icon: 'devops', summary: 'Repeatable, observable delivery.', tools: ['Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins', 'Terraform', 'AWS', 'Azure'] },
 ];
 
 export const processSteps = [
