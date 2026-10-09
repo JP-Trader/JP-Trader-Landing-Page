@@ -46,10 +46,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Header */
 .header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.logo { display: inline-flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.2rem; color: var(--navy-900); text-decoration: none; }
+.logo { display: inline-flex; flex-direction: column; align-items: center; gap: .3rem; line-height: 1; color: var(--navy-900); text-decoration: none; }
 .footer .logo { color: var(--white); }
-.logo__text { letter-spacing: -0.01em; white-space: nowrap; }
-.logo__text small { font-size: inherit; font-weight: 500; opacity: .78; }
+.logo__mark { display: block; height: 36px; width: auto; }
+.logo__text { text-transform: uppercase; letter-spacing: .3em; font-weight: 600; font-size: .58rem; white-space: nowrap; margin-left: .3em; }
 .nav { display: flex; align-items: center; gap: 1.5rem; }
 .nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 500; }
 .nav a:not(.btn):hover { color: var(--blue-600); }
