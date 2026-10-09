@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <Logo />
           <p className="footer__blurb">
-            Web and mobile applications, QA, DevOps, AI agent automation, deployment and maintenance.
+            Web and mobile applications, QA, DevOps, AI agent automation and application security, from build to maintenance.
           </p>
         </div>
         <nav aria-label="Footer navigation">

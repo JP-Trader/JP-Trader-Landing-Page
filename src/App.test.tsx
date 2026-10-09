@@ -12,16 +12,16 @@ describe('App', () => {
     expect(screen.getAllByRole('link', { name: 'Start Your Project' }).length).toBeGreaterThan(0);
   });
 
-  it('lists all eight services', () => {
+  it('lists all nine services', () => {
     render(<App />);
     const section = document.getElementById('services')!;
-    expect(section.querySelectorAll('article')).toHaveLength(8);
+    expect(section.querySelectorAll('article')).toHaveLength(9);
   });
 
   it('renders the tech stack grouped by layer', () => {
     render(<App />);
     const section = document.getElementById('stack')!;
-    expect(section.querySelectorAll('.stack > li')).toHaveLength(6);
+    expect(section.querySelectorAll('.stack > li')).toHaveLength(7);
     expect(screen.getByRole('list', { name: 'QA & Testing tools' })).toHaveTextContent('Playwright');
   });
 

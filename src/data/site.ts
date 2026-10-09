@@ -34,6 +34,7 @@ export const services: Card[] = [
   { title: 'QA & Testing Solutions', short: 'QA & Testing', icon: 'qa', description: 'Manual and automated testing: functional, regression, API, performance and security testing with test automation frameworks and clear reports.' },
   { title: 'DevOps Solutions', short: 'DevOps', icon: 'devops', description: 'CI/CD pipelines, infrastructure as code, containerization, cloud setup and monitoring so releases are fast, repeatable and reliable.' },
   { title: 'AI Agent Integration & Automation', short: 'AI Agents', icon: 'ai', description: 'AI agents and LLM-powered assistants built into your apps and workflows, automating repetitive processes with human-in-the-loop controls.' },
+  { title: 'Application Security', short: 'AppSec', icon: 'shield', description: 'Security built in from day one: secure code review, SAST/DAST and dependency scanning, penetration testing, hardening and fixes, aligned with OWASP guidance.' },
   { title: 'Application Deployment', short: 'Deployment', icon: 'cloud', description: 'Build, configure, test and deploy to web servers, cloud infrastructure, the Apple App Store and Google Play Store.' },
   { title: 'Application Maintenance', short: 'Maintenance', icon: 'wrench', description: 'Bug fixes, security updates, performance optimization, version upgrades and ongoing technical support.' },
 ];
@@ -53,6 +54,7 @@ export const stack: StackGroup[] = [
   { title: 'QA & Testing', icon: 'qa', summary: 'Automation at every level.', tools: ['Playwright', 'Selenium', 'Cypress', 'Appium', 'Postman', 'JMeter'] },
   { title: 'DevOps & Cloud', icon: 'devops', summary: 'Repeatable, observable delivery.', tools: ['Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins', 'Terraform', 'AWS', 'Azure'] },
   { title: 'AI & Automation', icon: 'ai', summary: 'Agents that do the busywork.', tools: ['Claude API', 'OpenAI API', 'LangChain', 'MCP', 'n8n', 'Python'] },
+  { title: 'Security', icon: 'shield', summary: 'Find and fix before attackers do.', tools: ['OWASP ZAP', 'Burp Suite', 'Semgrep', 'SonarQube', 'Trivy', 'Snyk'] },
 ];
 
 export const processSteps = [
@@ -68,7 +70,7 @@ export const reasons: Card[] = [
   { title: 'Customized Solutions', icon: 'puzzle', description: 'Built around your workflow, not a one-size-fits-all template.' },
   { title: 'Maintainable Code', icon: 'code', description: 'Structured, documented code your team can extend.' },
   { title: 'Scalability', icon: 'layers', description: 'Architecture that can grow with your users and data.' },
-  { title: 'Application Security', icon: 'shield', description: 'Secure coding practices, dependency updates and access controls.' },
+  { title: 'Security First', icon: 'shield', description: 'Application security is a focus, not an afterthought: secure coding, scanning and testing on every project.' },
   { title: 'Technical Support', icon: 'headset', description: 'Responsive help for fixes, upgrades and questions.' },
 ];
 
@@ -81,5 +83,6 @@ export const inquiryTopics = [
   'QA & Testing',
   'DevOps',
   'AI Agents & Automation',
+  'Application Security',
   'Other',
 ];

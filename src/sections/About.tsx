@@ -1,6 +1,6 @@
 import Section from '../components/Section';
 
-const focus = ['Software development', 'Mobile applications', 'QA & testing', 'DevOps', 'AI automation', 'Maintenance'];
+const focus = ['Software development', 'Mobile applications', 'QA & testing', 'DevOps', 'AI automation', 'Application security', 'Maintenance'];
 
 export default function About() {
   return (
@@ -20,6 +20,10 @@ export default function About() {
           <p>
             And we put AI to work: agents and assistants integrated into your applications and internal
             workflows that automate repetitive processes, with people kept in control of the decisions that matter.
+          </p>
+          <p>
+            We focus on application security. Every project gets secure coding practices, code and dependency
+            scanning and security testing, so what we ship is built to withstand real-world threats.
           </p>
         </div>
         <ul className="chips" aria-label="Areas of focus">
