@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jptrader.in/sitemap.xml
