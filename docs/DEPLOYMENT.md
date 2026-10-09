@@ -77,7 +77,6 @@ This landing page does not publish any apps. When delivering client apps, the fo
 - Apple Developer Program membership; App Store Connect record, bundle ID, signing certificates and provisioning profiles
 - Build with the Xcode/SDK versions Apple currently requires; upload via Xcode or Transporter; test with TestFlight
 - App Review Guidelines compliance, privacy "nutrition label", privacy policy URL, screenshots and metadata, account deletion if accounts are offered, demo credentials for reviewers
-- Apps involving trading or financial services need extra care: licensing/regulatory documentation may be requested by review
 
 **Google Play**
 - Google Play Console developer account; signed Android App Bundle (AAB); Play App Signing
@@ -91,4 +90,4 @@ Check each store's current policies at submission time, since requirements chang
 - **Auth:** add an identity provider (Auth0, Keycloak, Cognito) behind a separate app/route; keep the landing page static.
 - **Database / APIs:** add a backend service and point `VITE_FORM_ENDPOINT` at it; typed helpers live in `src/lib/`.
 - **Cloud services:** `dist/` is portable; add CI that runs `npm run test && npm run build`.
-- **Trading systems:** keep API keys server-side only, never in the browser bundle (anything prefixed `VITE_` is public).
+- **Secrets:** keep API keys server-side only, never in the browser bundle (anything prefixed `VITE_` is public).

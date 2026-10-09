@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <Logo />
           <p className="footer__blurb">
-            Web and mobile applications, deployment, maintenance and trading automation.
+            Web and mobile applications, QA, DevOps, deployment and maintenance.
           </p>
         </div>
         <nav aria-label="Footer navigation">
@@ -43,9 +43,6 @@ export default function Footer() {
       </div>
       <div className="container footer__legal">
         <p>&copy; {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-        <p>
-          Trading involves risk. {company.name} builds software tools and does not provide investment advice or guarantee any trading returns.
-        </p>
       </div>
     </footer>
   );

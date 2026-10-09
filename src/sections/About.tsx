@@ -1,6 +1,6 @@
 import Section from '../components/Section';
 
-const focus = ['Software development', 'Mobile applications', 'Deployment', 'Maintenance', 'Trading automation'];
+const focus = ['Software development', 'Mobile applications', 'QA & testing', 'DevOps', 'Maintenance'];
 
 export default function About() {
   return (
@@ -13,8 +13,9 @@ export default function About() {
             up to date after launch.
           </p>
           <p>
-            We also develop automated trading software: bots with configurable strategies, execution rules
-            and risk-management controls, integrated with supported third-party APIs and market data providers.
+            We also provide QA and DevOps solutions: manual and automated testing across functional, regression,
+            API, performance and security, plus CI/CD pipelines, cloud infrastructure and monitoring that make
+            every release fast and dependable.
           </p>
         </div>
         <ul className="chips" aria-label="Areas of focus">

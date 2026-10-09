@@ -5,8 +5,8 @@ const inquiry: InquiryValues = {
   name: 'Asha Kumar',
   email: 'asha@example.com',
   phone: '+91 98765 43210',
-  service: 'Trading Bot',
-  message: 'We need a bot with risk limits.',
+  service: 'QA & Testing',
+  message: 'We need automated regression tests.',
 };
 
 const okResponse = (body: unknown = { success: true }) =>
@@ -29,10 +29,10 @@ describe('submitInquiry', () => {
     expect(url).toBe('https://api.web3forms.com/submit');
     expect(JSON.parse(String(init?.body))).toMatchObject({
       access_key: 'test-key',
-      subject: 'Inquiry: Trading Bot',
+      subject: 'Inquiry: QA & Testing',
       replyto: 'asha@example.com',
       name: 'Asha Kumar',
-      message: 'We need a bot with risk limits.',
+      message: 'We need automated regression tests.',
     });
   });
 

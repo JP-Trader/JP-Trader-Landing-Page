@@ -1,10 +1,9 @@
 import Icon from '../components/Icon';
 
 const LINE = 'M0 130 L40 110 L80 120 L120 80 L160 95 L200 55 L240 70 L280 30 L320 40';
-const candles = [
-  [18, 100, 140, 118, 124], [48, 96, 132, 104, 126], [78, 108, 138, 114, 132], [108, 70, 120, 84, 112],
-  [138, 78, 116, 100, 90], [168, 60, 108, 72, 98], [198, 44, 90, 52, 80], [228, 52, 96, 76, 62],
-  [258, 28, 76, 38, 66], [288, 24, 70, 50, 34],
+/** Illustrative pipeline runs: [x, bar height] — passing checks per run. */
+const runs: [number, number][] = [
+  [18, 38], [48, 44], [78, 36], [108, 58], [138, 52], [168, 70], [198, 76], [228, 72], [258, 92], [288, 100],
 ];
 
 export default function Hero() {
@@ -18,13 +17,13 @@ export default function Hero() {
       </div>
       <div className="container hero__inner">
         <div className="hero__copy">
-          <p className="eyebrow eyebrow--light">Software · Mobile · Trading Automation</p>
+          <p className="eyebrow eyebrow--light">Software · Mobile · QA · DevOps</p>
           <h1 id="hero-title">
             Building Smart Applications. <span className="grad">Powering Digital Growth.</span>
           </h1>
           <p className="hero__lead">
-            JP Trader designs, builds, deploys and maintains web and mobile applications, and develops
-            automated trading bots with configurable strategies and built-in risk controls.
+            JP Trader designs, builds, deploys and maintains web and mobile applications, backed by QA
+            and DevOps solutions that keep every release tested, automated and reliable.
           </p>
           <div className="hero__cta">
             <a href="#services" className="btn btn--primary">
@@ -35,7 +34,7 @@ export default function Hero() {
         </div>
         <div className="hero__visual" aria-hidden="true">
           <div className="mock">
-            <div className="mock__bar"><i /><i /><i /><b>strategy.run</b></div>
+            <div className="mock__bar"><i /><i /><i /><b>pipeline.run</b></div>
             <svg viewBox="0 0 320 160" className="mock__chart">
               <defs>
                 <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
@@ -46,22 +45,21 @@ export default function Hero() {
               {[40, 80, 120].map((y) => (
                 <line key={y} x1="0" x2="320" y1={y} y2={y} stroke="#fff" strokeOpacity=".07" />
               ))}
-              {candles.map(([x, hi, lo, a, b], i) => (
+              {runs.map(([x, h], i) => (
                 <g key={x} className="candle" style={{ ['--d' as string]: `${i * 0.12}s` }}>
-                  <line x1={x} x2={x} y1={hi} y2={lo} stroke={b < a ? '#f87171' : '#4ade80'} strokeOpacity=".55" />
-                  <rect x={x - 5} y={Math.min(a, b)} width="10" height={Math.abs(a - b) || 2} rx="1.5" fill={b < a ? '#f87171' : '#4ade80'} fillOpacity=".7" />
+                  <rect x={x - 6} y={150 - h} width="12" height={h} rx="2" fill="#4ade80" fillOpacity=".55" />
                 </g>
               ))}
               <path d={`${LINE} V160 H0Z`} fill="url(#g)" className="mock__area" />
               <path d={LINE} pathLength={1} className="mock__line" fill="none" stroke="#60a5fa" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
             </svg>
             <div className="mock__tags">
-              <span>Strategy rules</span><span>Risk limits</span><span>API ready</span>
+              <span>Automated tests</span><span>CI/CD</span><span>Monitoring</span>
             </div>
           </div>
-          <div className="float float--a"><Icon name="shield" size={18} /> Risk controls</div>
-          <div className="float float--b"><Icon name="plug" size={18} /> API integrations</div>
-          <p className="mock__note">Illustrative interface. Not real performance data.</p>
+          <div className="float float--a"><Icon name="qa" size={18} /> Quality gates</div>
+          <div className="float float--b"><Icon name="devops" size={18} /> CI/CD pipelines</div>
+          <p className="mock__note">Illustrative interface. Not real project data.</p>
         </div>
       </div>
       <a href="#about" className="scroll-hint" aria-label="Scroll to About section"><span /></a>

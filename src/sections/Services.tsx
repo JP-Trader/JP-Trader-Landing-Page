@@ -8,7 +8,7 @@ export default function Services() {
       id="services"
       tone="tint"
       eyebrow="Services"
-      title="End-to-end software and trading automation"
+      title="End-to-end software, QA and DevOps"
       intro="From the first requirement to the last bug fix, we cover the full application lifecycle."
     >
       <div className="grid grid--services">

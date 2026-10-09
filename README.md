@@ -22,4 +22,4 @@ docs/           DEPLOYMENT.md, TESTING.md
 
 Edit content in `src/data/site.ts`. See `docs/DEPLOYMENT.md` for the form endpoint, hosting, and App Store / Google Play notes.
 
-The page makes no claims of published apps, testimonials, certifications or trading returns. Keep it that way unless they are real and verifiable.
+The page makes no claims of published apps, testimonials, certifications or client results. Keep it that way unless they are real and verifiable.

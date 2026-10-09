@@ -4,7 +4,7 @@ import { platforms } from '../data/site';
 
 export default function Platforms() {
   return (
-    <Section id="platforms" tone="dark" eyebrow="Platforms we support" title="Wherever your users and your markets are">
+    <Section id="platforms" tone="dark" eyebrow="Platforms we support" title="Wherever your users and your workloads are">
       <ul className="platforms">
         {platforms.map((p) => (
           <li key={p.title}>

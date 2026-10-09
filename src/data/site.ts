@@ -30,8 +30,8 @@ export const services: Card[] = [
   { title: 'Android App Development', icon: 'android', description: 'Modern Android applications with intuitive interfaces and reliable performance.' },
   { title: 'Application Deployment', icon: 'cloud', description: 'Build, configure, test and deploy to web servers, cloud infrastructure, the Apple App Store and Google Play Store.' },
   { title: 'Application Maintenance', icon: 'wrench', description: 'Bug fixes, security updates, performance optimization, version upgrades and ongoing technical support.' },
-  { title: 'Trading Bot Development', icon: 'bot', description: 'Automated trading software with configurable strategies, API integrations, execution rules and risk-management controls.' },
-  { title: 'Trading System Integration', icon: 'plug', description: 'Integration with supported third-party APIs, market data providers and other trading-related systems.' },
+  { title: 'QA & Testing Solutions', icon: 'qa', description: 'Manual and automated testing: functional, regression, API, performance and security testing with test automation frameworks and clear reports.' },
+  { title: 'DevOps Solutions', icon: 'devops', description: 'CI/CD pipelines, infrastructure as code, containerization, cloud setup and monitoring so releases are fast, repeatable and reliable.' },
 ];
 
 export const platforms: Card[] = [
@@ -39,15 +39,15 @@ export const platforms: Card[] = [
   { title: 'iOS', icon: 'apple', description: 'iPhone and iPad, with App Store submission support.' },
   { title: 'Android', icon: 'android', description: 'Phones and tablets, with Google Play submission support.' },
   { title: 'Cloud Deployment', icon: 'cloud', description: 'Web servers and cloud infrastructure.' },
-  { title: 'Trading APIs', icon: 'plug', description: 'Supported third-party broker, exchange and market data APIs.' },
+  { title: 'CI/CD & Automation', icon: 'devops', description: 'Pipelines, containers and test automation tooling.' },
 ];
 
 export const processSteps = [
   { title: 'Requirements', description: 'We clarify goals, users, scope and constraints before any code is written.' },
   { title: 'UI/UX Design', description: 'Wireframes and interface designs that are clear, accessible and on-brand.' },
   { title: 'Development', description: 'Clean, modular, documented code built in reviewable increments.' },
-  { title: 'Testing', description: 'Functional, security and device testing, including strategy testing for trading bots.' },
-  { title: 'Deployment', description: 'Server, cloud and store releases that follow Apple and Google submission requirements.' },
+  { title: 'Testing', description: 'Functional, regression, security and device testing, automated wherever it pays off.' },
+  { title: 'Deployment', description: 'Server, cloud and store releases through automated pipelines, following Apple and Google submission requirements.' },
   { title: 'Ongoing Support', description: 'Maintenance, updates and technical help after launch.' },
 ];
 
@@ -65,7 +65,7 @@ export const inquiryTopics = [
   'Android App',
   'Deployment',
   'Maintenance & Support',
-  'Trading Bot',
-  'Trading System Integration',
+  'QA & Testing',
+  'DevOps',
   'Other',
 ];

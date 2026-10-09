@@ -4,8 +4,8 @@ const valid: InquiryValues = {
   name: 'Asha Kumar',
   email: 'asha@example.com',
   phone: '+91 98765 43210',
-  service: 'Trading Bot',
-  message: 'We need a bot with risk limits.',
+  service: 'QA & Testing',
+  message: 'We need automated regression tests.',
 };
 
 describe('validateInquiry', () => {
