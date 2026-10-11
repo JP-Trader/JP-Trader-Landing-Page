@@ -9,7 +9,22 @@ npm run test
 npm run build            # outputs static files to dist/
 ```
 
-`dist/` is a static site. Host it on any static host: Nginx/Apache on a VPS, Cloudflare Pages, Netlify, Vercel, S3 + CloudFront, or Azure Static Web Apps.
+`dist/` is a static site. Host it on any static host: Cloudflare Pages (current), Nginx/Apache on a VPS, Netlify, Vercel, S3 + CloudFront, or Azure Static Web Apps.
+
+### Cloudflare Pages (current hosting)
+The project `jp-trader-landing-page` is connected to this GitHub repo; every push to `main` builds and deploys automatically (about 20 seconds), and `jptrader.in` / `www.jptrader.in` are attached as custom domains.
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` (never `npm run dev` — a dev server never exits and the build hangs until Cloudflare's 20-minute timeout) |
+| Build output directory | `dist` |
+| Environment variables (Production) | `NODE_VERSION=20`, `VITE_WEB3FORMS_KEY=<key>` |
+
+Manual deploy without waiting for a build (needs `npx wrangler login` once):
+```bash
+VITE_WEB3FORMS_KEY=<key> npm run build
+npx wrangler pages deploy dist --project-name jp-trader-landing-page --branch main
+```
 
 ### Single-page hosting notes
 The page has no client-side routes, so no rewrite rules are needed. Serve `index.html` at `/`.
@@ -53,10 +68,8 @@ The site is static, so a small relay service delivers inquiries to `info@jptrade
 
 **Web3Forms (current setup, free):**
 1. Go to https://web3forms.com, enter `info@jptrader.in` and click *Create Access Key*. The key is emailed to that inbox.
-2. Store it as a repository variable so the GitHub Pages build picks it up:
-   `gh variable set VITE_WEB3FORMS_KEY --repo JP-Trader/JP-Trader-Landing-Page --body "<key>"`
-   (or GitHub > Settings > Secrets and variables > Actions > Variables).
-3. Re-run the deploy workflow (or push to `main`). Submit a test inquiry and confirm it arrives.
+2. In Cloudflare Pages > `jp-trader-landing-page` > Settings > Environment variables, set `VITE_WEB3FORMS_KEY` for Production (and Preview if you want previews to send).
+3. Retry the latest deployment (or push to `main`). Submit a test inquiry and confirm it arrives.
 The key is public by design (it ships in the browser bundle) and only allows sending to the address it was created for. Web3Forms honours the form's honeypot field and offers reCAPTCHA/hCaptcha if spam becomes a problem.
 
 **Alternative:** set `VITE_FORM_ENDPOINT` to any endpoint that accepts a JSON `POST` with `name, email, phone, service, message` (Formspree, a serverless function, or your own API). Add server-side validation, rate limiting and spam protection there; client validation is only a convenience.
